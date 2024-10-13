@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/css/sign.css">
+
+<div class="mainContainer " style="height: 400px;" >
+  
+    <!-- <div class="companyLogo">
+         <img src="/images/Employee_Portal.jpg"> 
+    </div> -->
+    <div class="formInput" style="height: 400px;">
+        <h1 class="text-center">Update Details</h1>
+<form action="/admin/updateEmployee/<%= employee._id %>" method="POST">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="<%= employee.name %>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="<%= employee.email %>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="isAdmin">Admin</label>
+        <select class="form-control" id="isAdmin" name="isAdmin">
+            <option value="true" <%= employee.isAdmin ? 'selected' : '' %>>Yes</option>
+            <option value="false" <%= !employee.isAdmin ? 'selected' : '' %>>No</option>
+        </select>
+    </div>
+<div class= 'buttons'>
+    <div id="addemp" class = "submitButtons" style="width: 60%;"><button type="submit">Update</button></div>
+    
+</div>
+</form>
+</div>
