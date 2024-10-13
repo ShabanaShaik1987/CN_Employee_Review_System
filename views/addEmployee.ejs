@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/sign.css">
+<div class="mainContainer " style="height: 400px;" >
+  
+        <div class="companyLogo">
+            <!-- <img src="/images/Employee_Portal.jpg"> -->
+        </div>
+  
+
+    <div class="formInput" style="height: 400px;">
+        <h1> Employee Details </h1>
+        <form method="POST" action="/users/addEmployee" >
+            <input type="Name" name="name" placeholder="Enter name" required><br>
+                <input type="email" name="email" placeholder="Enter email" required><br>
+                <input type="password" name="password" placeholder="Enter password" required><br>
+                <input type="password" name="confirmPassword" placeholder="Confirm password" required><br>
+               <!-- <div style="height: 20px; margin-top: 5px;"> <button style="width: 100px; margin-left: 50px; height: 30px;"  type="submit">Sign Up</button></div> -->
+            
+            <div class= 'buttons'>
+                <!-- <div class="forgetPassword"><a href="/users/forgetPassword"> ForgetPassword </a></div> -->
+                <div id="addemp" class = "submitButtons" style="width: 60%;"><button type="submit">Add</button></div>
+                
+            </div>
+    </div>
+</div>

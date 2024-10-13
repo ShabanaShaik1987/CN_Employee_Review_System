@@ -1,0 +1,14 @@
+.footer{
+    position: fixed; 
+    left: 0; 
+    bottom: 0;
+     width: 100%;
+      height: 30px;
+       background-color:  orange;
+       color: whitesmoke;
+}
+.card-header {
+    text-align: right; /* Aligning text to the right */
+    padding-right: 20px; /* Adds a little padding to move the text away from the edge */
+    line-height: 30px; /* Vertically center the text within the container */
+}
