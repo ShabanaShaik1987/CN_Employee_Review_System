@@ -21,10 +21,14 @@
          if (flash.success && flash.success.length > 0)  { 
             new Noty({
                 theme: 'relax',
-                text: "<%- flash.success %>",
+                text: "<%= flash.success %>",
                 type: 'success',
                 layout: 'center',
-                timeout: 2500
+                timeout: 2500,
+                style: {
+        background: 'red', // Custom background color
+        color: 'white'       // Custom text color
+    }
                 
             }).show();    
          } 
@@ -32,10 +36,15 @@
         if (flash.error && flash.error.length > 0) { 
             new Noty({
                 theme: 'relax',
-                text: "<%- flash.error %>",
+                text: "<%= flash.error %>",
                 type: 'error',
                 layout: 'center',
-                timeout: 2500
+                timeout: 2500,
+                // Custom styles
+    style: {
+        background: 'red', // Custom background color
+        color: 'white'       // Custom text color
+    }
                 
             }).show();    
         } 

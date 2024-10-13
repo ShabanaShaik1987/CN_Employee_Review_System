@@ -13,11 +13,11 @@ module.exports.assignWork = async function(req, res){
 // This function will show the list of employee woking in the company.
 module.exports.showEmployeeList = async function(req, res){
     if(!req.isAuthenticated()){
-        req.flash('error' , 'You are not authorized !');
+        req.flash('error' , 'You are not authorized.');
         return res.redirect('/users/sign-in');
     }
     if(req.user.isAdmin == false){
-        req.flash('error' , 'You are not authorized!');
+        req.flash('error' , 'You are not authorized.');
         return res.redirect('/');
     }
     let employeList = await Users.find({});
@@ -34,7 +34,7 @@ module.exports.setReviewrAndReviewe = async function(req, res){
         // first checking if the req is made correct or not.
         if(!req.isAuthenticated()){
             // flash messages
-            req.flash('success' , 'Please Login !');
+            req.flash('success' , 'Please Login.');
             // console.log("Please logIn");
             return res.redirect('/users/sign-in');
         }else{
@@ -42,7 +42,7 @@ module.exports.setReviewrAndReviewe = async function(req, res){
     
             if(employee.isAdmin == false){
                 // flash Messages
-                req.flash('error' , 'Opps ! Not Authorized ');
+                req.flash('error' , 'Opps,Not Authorized ');
                 // console.log('User is not admin');
                 return res.redirect('/users/sign-in');
             }
@@ -63,7 +63,7 @@ module.exports.setReviewrAndReviewe = async function(req, res){
                 reciver.reviewRecivedFrom.push(sender);
                 reciver.save();
                 // flash Messages
-                req.flash('success', 'Task Assigned !');
+                req.flash('success', 'Task Assigned.');
                 return res.redirect('/');
             }
         }
@@ -81,13 +81,13 @@ module.exports.newAdmin = async function(req, res){
         if(!req.isAuthenticated()){
             console.log('Please LogIn');
             // flash Messages
-            req.flash("success" , 'Please LogIn !');
+            req.flash("success" , 'Please LogIn.');
             return res.redirect('/users/sign-in');
         }
         // Checking for authorization
         if(req.user.isAdmin == false){
             // flash messages
-            req.flash('error' , 'You are not Admin !');
+            req.flash('error' , 'You are not an Admin.');
             return res.redirect('/');
         }
         // Making the user admin.
@@ -98,7 +98,7 @@ module.exports.newAdmin = async function(req, res){
                 
                 return res.redirect('/');
             }
-            req.flash('success' , 'New Admin Added');
+            req.flash('success' , 'New admin added');
             user.isAdmin = "true";
             user.save();
             return res.redirect('/');
@@ -116,20 +116,20 @@ module.exports.deleteEmployee = async function(req, res){
         // Authentication and Authoriztion chekcing
         if(!req.isAuthenticated()){
             // flash Messages
-            req.flash('error' , 'Please Login !')
+            req.flash('error' , 'Please Login.')
             return res.redirect('users/sign-in');
         }
 
         if(!req.user.isAdmin){
             // flash Messages
-            req.flash('error' , 'You are not admin !')
+            req.flash('error' , 'You are not an admin.')
             return res.redirect('/');
         }
         // Deleting the user.
         let employee = await Users.deleteOne({_id : req.params.id});
         // flash Messages
-        req.flash('success' , 'User Deleted!')
-        return res.redirect('/');
+        req.flash('success' , 'User Deleted.')
+        return res.redirect('/admin/view-employee');
 
     }catch(err){
         console.log(err);
@@ -146,7 +146,7 @@ module.exports.addEmployee = function(req, res){
 module.exports.updateEmployeeForm = async function (req, res) {
     try {
         if (!req.isAuthenticated()) {
-            req.flash('error', 'Please login!');
+            req.flash('error', 'Please login.');
             return res.redirect('/users/sign-in');
         }
         if (req.user.isAdmin == false) {

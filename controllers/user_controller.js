@@ -9,7 +9,7 @@ module.exports.signIn = function(req, res){
 // creating the session, basically for logging In
 module.exports.createSession = async function(req, res){
     // console.log(req.body);
-    req.flash('success', 'Log in successful.');
+    req.flash('success', 'Log in successful');
     return res.redirect('/');
 }
 
@@ -25,7 +25,7 @@ module.exports.signUp = function(req, res){
 module.exports.create = async function(req, res){
     if(req.body.password != req.body.confirmPassword){
         //disply flash messages
-        req.flash('error' , 'Password should be equal to Confirm Password');
+        req.flash('error' , 'Password and Confirm Password shold match');
         return res.redirect('/');
     }
     let user = await User.findOne({email : req.body.email});
@@ -48,7 +48,7 @@ module.exports.destroySession = function (req, res, done){
         if(err){
             return done(err);
         }
-        req.flash('success' , 'Logged Out Sucessfully !');
+        req.flash('success' , 'Logged Out Sucessfully.');
         return res.redirect('/users/sign-in');
     });
     
